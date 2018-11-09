@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
                 } else {
 
-                    Log.d(TAG, "Bluetooth is not enabled");
+                    Log.d(TAG, "Bluetooth is not enabled   .");
                 }
                 break;
         }
