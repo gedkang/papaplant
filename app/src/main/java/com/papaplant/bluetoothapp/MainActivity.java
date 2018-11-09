@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     public void onClickBluetooch(View v){
         Intent bluetoothintent = new Intent(getApplicationContext(), BluetoothListActivity.class);
-        Log.d(TAG, "새창 띄우기");
+        Log.d(TAG, "새창 호출");
         startActivity(bluetoothintent);
     }
 
