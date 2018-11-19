@@ -14,7 +14,7 @@
         android:text="블루투스창"
         app:layout_constraintBottom_toTopOf="@+id/seekBarTotal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.366"
+        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="@+id/txt_result"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.223" />
@@ -95,11 +95,12 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:onClick="onClickBluetooch"
         android:text="Bluetooth화면"
         app:layout_constraintStart_toEndOf="@+id/btn_connect"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

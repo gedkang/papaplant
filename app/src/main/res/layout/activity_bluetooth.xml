@@ -22,7 +22,6 @@
         app:layout_constraintVertical_bias="0.222" />
 
 
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -37,17 +36,17 @@
         android:layout_width="352dp"
         android:layout_height="226dp"
         android:text="TextView"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="81dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="81dp" />
 
     <Button
         android:id="@+id/search_bluetootd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bluetooth Search"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="111dp"
-        tools:layout_editor_absoluteY="16dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="16dp" />
 
 </android.support.constraint.ConstraintLayout>
