@@ -11,12 +11,15 @@
     <Button
         android:id="@+id/vent_connect"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="34dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="436dp"
         android:text="벤트버튼"
-        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/toggleButtonPower"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -24,23 +27,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_connect"
+        android:layout_marginTop="4dp"
         android:text=""
         app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.AppCompatSeekBar
         android:id="@+id/seekBarTotal"
         android:layout_width="0dp"
-        android:layout_height="15dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="264dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="100dp"
         android:max="100"
         android:progress="25"
-        android:progressDrawable="@drawable/seekbar_seekbar2"
-        android:thumb="@drawable/seekbar_seekbar2_thumb"
+        android:progressDrawable="@drawable/seekbar_seekbar_total"
+        android:thumb="@drawable/seekbar_seekbar_total_thumb"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,41 +58,44 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="262dp"
-        android:max="100"
-        android:progress="25"
+        android:layout_marginBottom="84dp"
+        android:max="1440"
+        android:progress="300"
         android:progressDrawable="@drawable/seekbar_seekbar1"
         android:thumb="@drawable/seekbar_seekbar1_thumb"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarTotal" />
 
     <android.support.v7.widget.AppCompatSeekBar
         android:id="@+id/seekBar2"
         android:layout_width="0dp"
-        android:layout_height="16dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="116dp"
         android:layout_marginEnd="8dp"
-        android:max="100"
-        android:progress="25"
+        android:layout_marginBottom="82dp"
+        android:max="1440"
+        android:progress="10"
         android:progressDrawable="@drawable/seekbar_seekbar2"
         android:thumb="@drawable/seekbar_seekbar2_thumb"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar1" />
 
-    <Button
+    <!--Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="8dp"
         android:onClick="onClickBluetooch"
         android:text="Bluetooth화면"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" / -->
 
     <TextView
         android:id="@+id/textView"
@@ -93,6 +104,70 @@
         android:text="Hi biyam"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="81dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="20dp"
+        android:text="POWER"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/vent_connect"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txt_result"
+        app:layout_constraintTop_toTopOf="@+id/txt_result"
+        app:layout_constraintVertical_bias="0.035" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="62dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="28dp"
+        android:text="VENT"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="92dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="SPEED"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarTotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vent_connect" />
+
+    <ToggleButton
+        android:id="@+id/toggleButtonPower"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="448dp"
+        android:background="@android:drawable/ic_lock_power_off"
+        android:text="ToggleButton"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vent_connect"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

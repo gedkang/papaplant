@@ -36,6 +36,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     //Seekbar2
     private SeekBar seekBar2;
 
+    //values
+    private String total = "25";
+    private String period = "300";
+    private String once_time = "10";
+    private String vent_onoff = "0";
+
     private BluetoothService btService = null;
 
     private final Handler mHandler = new Handler() {
@@ -52,8 +58,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         setContentView(R.layout.activity_main);
 
+        total = pad("25",3);
+        period = pad("300", 4);
+        once_time = pad("10", 4);
+
         /** Main Layout **/
-        btn_Connect = (Button) findViewById(R.id.btn_connect);
+        btn_Connect = (Button) findViewById(R.id.vent_connect);
         txt_Result = (TextView) findViewById(R.id.txt_result);
 
         btn_Connect.setOnClickListener(this);
@@ -61,12 +71,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         //Seekbar Object 생성
         seekBarTotal = (SeekBar) findViewById(R.id.seekBarTotal);
         seekBar1 = (SeekBar) findViewById(R.id.seekBar1);
-        seekBar2 = (SeekBar) findViewById(R.id.seekBar1);
+        seekBar2 = (SeekBar) findViewById(R.id.seekBar2);
 
         seekBarTotal.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 Log.d(TAG, "SeekBar total ProgressChanged : " + progress);
+                total = pad(progress +"", 3);
             }
 
             @Override
@@ -76,7 +87,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Log.d(TAG, "SeekBar total StopTrackingTouch");
+                Log.d(TAG, "SeekBar total StopTrackingTouch : " + total) ;
+                sendMessage();
             }
         });
 
@@ -84,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 Log.d(TAG, "SeekBar 1 ProgressChanged : " + progress);
+                period = pad(progress + "", 4);
             }
 
             @Override
@@ -93,7 +106,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Log.d(TAG, "SeekBar 1 StopTrackingTouch");
+                Log.d(TAG, "SeekBar 1 StopTrackingTouch : " + period);
+                sendMessage();
             }
         });
 
@@ -101,6 +115,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 Log.d(TAG, "SeekBar 2 ProgressChanged : " + progress);
+                once_time = pad(progress + "", 4);
             }
 
             @Override
@@ -110,7 +125,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Log.d(TAG, "SeekBar 2 StopTrackingTouch");
+                Log.d(TAG, "SeekBar 2 StopTrackingTouch : " + once_time);
+                sendMessage();
             }
         });
 
@@ -163,5 +179,22 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 }
                 break;
         }
+    }
+
+    public String pad(String str, int size)
+    {
+        char padChar = '0';
+
+        while (str.length() < size)
+        {
+            str = padChar + str;
+        }
+        return str;
+    }
+
+    public String sendMessage(){
+        String returnMsg = "M" + total + "V" + vent_onoff + "T" + period + "P" + once_time + "PA";
+        Log.d(TAG, returnMsg);
+        return returnMsg;
     }
 }
