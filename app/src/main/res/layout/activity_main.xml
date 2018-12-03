@@ -118,6 +118,7 @@
         android:text="POWER"
         android:textColor="@color/white"
         android:textSize="20dp"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/vent_connect"
         app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.0"
@@ -133,6 +134,7 @@
         android:text="VENT"
         android:textColor="@color/white"
         android:textSize="20dp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -146,6 +148,7 @@
         android:text="SPEED"
         android:textColor="@color/white"
         android:textSize="20dp"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/seekBarTotal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
