@@ -21,7 +21,7 @@ import java.util.UUID;
 
 public class BluetoothService {
     // Debugging
-    private static final String TAG = "biyam";
+    private static final String TAG = "papaplant.biyam";
 
     //Intent request code
     private static final int REQUEST_CONNECT_DEVICE = 1;
