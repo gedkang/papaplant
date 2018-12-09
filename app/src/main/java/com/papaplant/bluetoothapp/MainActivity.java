@@ -195,6 +195,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     public String sendMessage(){
         String returnMsg = "M" + total + "V" + vent_onoff + "T" + period + "P" + once_time + "PA";
         Log.d(TAG, returnMsg);
+        ;
+        //MAC Address : D4:36:39:6F:57:22
+
         return returnMsg;
     }
 }
