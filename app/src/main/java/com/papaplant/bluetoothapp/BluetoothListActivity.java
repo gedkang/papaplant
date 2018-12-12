@@ -169,7 +169,7 @@ public class BluetoothListActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     // 해당 디바이스와 연결하는 함수 호출
                     Log.d(TAG, charSequences[which].toString());
-
+                    Log.d(TAG,"+11111111111111111111111111111111111111111+++++++++++++++++++++++++++++++++++++++++++++++++++");
                     connectDevice(charSequences[which].toString());
                 }
             });
@@ -184,7 +184,9 @@ public class BluetoothListActivity extends AppCompatActivity {
         }
     }
 
+    //2A:25:47:4E:3D:40
     public void connectDevice(String deviceName) {
+        Log.d(TAG,deviceName + "++++++++++++++++++++++++++++++++++++++++++++++++++++");
         // 페어링 된 디바이스들을 모두 탐색
         for(BluetoothDevice tempDevice : devices) {
             // 사용자가 선택한 이름과 같은 디바이스로 설정하고 반복문 종료
@@ -193,25 +195,36 @@ public class BluetoothListActivity extends AppCompatActivity {
                 break;
             }
         }
-
-        Log.d(TAG,bluetoothDevice.getUuids().toString());
+        Log.d(TAG,deviceName + "end     +++++++++++++++++++++++++++++++++++++++++++++++++++");
 
         // UUID 생성
-        UUID uuid = java.util.UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+        //UUID uuid = java.util.UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+        //UUID uuid = java.util.UUID.fromString("000FFB2-0000-1000-8000-00805F934FB");
+        UUID uuid = java.util.UUID.fromString("0000ffb2-0000-1000-8000-00805f9b34fb");
 
         // Rfcomm 채널을 통해 블루투스 디바이스와 통신하는 소켓 생성
         try {
             bluetoothSocket = bluetoothDevice.createRfcommSocketToServiceRecord(uuid);
+            if(bluetoothSocket == null)
+                Log.d(TAG,"null");
             bluetoothSocket.connect();
+            Log.d(TAG,"------------------------------------------------------");
 
             // 데이터 송,수신 스트림을 얻어옵니다.
             outputStream = bluetoothSocket.getOutputStream();
             inputStream = bluetoothSocket.getInputStream();
+            Log.d(TAG,"++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
+            //String returnMsg = "M" + "075"+ "V" + "00" + "T" + "0000" + "P" + "0000" + "PA";
+            //outputStream.write(returnMsg.charAt());
 
             // 데이터 수신 함수 호출
             //receiveData();
+            String returnMsg = "M" + "075"+ "V" + "00" + "T" + "0000" + "P" + "0000" + "PA";
+            outputStream.write(returnMsg.getBytes());
 
         } catch (IOException e) {
+            Log.d(TAG, "Exception \n" + e.toString());
             e.printStackTrace();
         }
 
