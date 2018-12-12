@@ -220,7 +220,7 @@ public class BluetoothListActivity extends AppCompatActivity {
 
             // 데이터 수신 함수 호출
             //receiveData();
-            String returnMsg = "M" + "075"+ "V" + "00" + "T" + "0000" + "P" + "0000" + "PA";
+            String returnMsg = "M" + "75"+ "V" + "0" + "T" + "0000" + "P" + "0000" + "PA";
             outputStream.write(returnMsg.getBytes());
 
         } catch (IOException e) {
