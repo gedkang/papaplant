@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothSocket;
+import android.bluetooth.le.BluetoothLeScanner;
+import android.bluetooth.le.ScanCallback;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
@@ -17,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.util.Map;
 
 
 public class BluetoothService {
@@ -39,6 +43,10 @@ public class BluetoothService {
     private Thread workerThread = null; // 문자열 수신에 사용되는 쓰레드
     private byte[] readBuffer; // 수신 된 문자열을 저장하기 위한 버퍼
     private int readBufferPosition; // 버퍼 내 문자 저장 위치
+
+
+
+
 
     public BluetoothAdapter getBtAdapter(){
         return btAdapter;
